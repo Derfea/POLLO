@@ -1,26 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import logo from './components/img/Kids Wish.png';
 import './App.css';
+import { Route, BrowserRouter as Switch } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Navbar from './components/Navbar/Navbar'
+import landingPage from './components/Product/ProductList'
+import Footer from './components/Footer/Footer'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component{
+  render (){
+    return (
+    <React.Fragment>
+      <Navbar/>
+        <Switch>
+         <Route path="/" exact component={landingPage}/>
+        </Switch>
+      <Footer/>
+   </React.Fragment>
+    );
+  }
 }
 
 export default App;
